@@ -77,7 +77,7 @@ export default function Dashboard() {
           .sort(([a], [b]) => a.localeCompare(b))
           .map(([month, data]) => ({
             month: format(parseISO(`${month}-01`), 'MMM yy', { locale: es }),
-            Ingresos: data.revenue,
+            Monto Contratado: data.revenue,
             Comisiones: data.commissions,
           }));
 
@@ -119,7 +119,7 @@ export default function Dashboard() {
             <div className="stat-card">
               <div className="flex items-center gap-2 mb-4">
                 <div className="h-3 w-3 rounded-full bg-primary" />
-                <h3 className="text-base font-bold text-foreground">Ingresos vs Comisiones</h3>
+                <h3 className="text-base font-bold text-foreground> Monto Contratado vs Comisiones</h3>
               </div>
               <div className="h-[280px]">
                 <ResponsiveContainer width="100%" height="100%">
@@ -133,7 +133,7 @@ export default function Dashboard() {
                       labelStyle={{ color: 'hsl(var(--foreground))', fontWeight: 600, marginBottom: '4px' }}
                     />
                     <Legend iconType="circle" iconSize={10} wrapperStyle={{ fontSize: '13px', paddingTop: '8px' }} />
-                    <Line type="monotone" dataKey="Ingresos" stroke="hsl(var(--primary))" strokeWidth={2.5} dot={{ r: 5, fill: 'hsl(var(--primary))', strokeWidth: 2, stroke: 'hsl(var(--background))' }} activeDot={{ r: 7, strokeWidth: 2 }} />
+                    <Line type="monotone" dataKey="Monto Contratado" stroke="hsl(var(--primary))" strokeWidth={2.5} dot={{ r: 5, fill: 'hsl(var(--primary))', strokeWidth: 2, stroke: 'hsl(var(--background))' }} activeDot={{ r: 7, strokeWidth: 2 }} />
                     <Line type="monotone" dataKey="Comisiones" stroke="hsl(var(--accent))" strokeWidth={2.5} dot={{ r: 5, fill: 'hsl(var(--accent))', strokeWidth: 2, stroke: 'hsl(var(--background))' }} activeDot={{ r: 7, strokeWidth: 2 }} />
                   </LineChart>
                 </ResponsiveContainer>
